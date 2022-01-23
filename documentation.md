@@ -36,7 +36,7 @@ let menu = new ContextMenu({
              }
          }, {
              name: 'Redo',
-             disabled: true, // Boolean. Determines if the user can click the item or not. If true, the item will be greyed out and will not respond to actions.
+             disabled: true, // Boolean. If true, the item will be greyed out and will not respond to actions.
          }
     ]
 })
