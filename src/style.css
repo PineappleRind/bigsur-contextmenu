@@ -1,0 +1,20 @@
+.BSCM_contextmenu {
+    position: fixed;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.BSCM_item {
+    padding: 6px 14px;
+    cursor: pointer;
+    margin: 2px;
+    font-family: "San Fransisco",'SF Pro','Helvetica Neue','Inter',sans-serif;
+    color: white;
+}
+.BSCM_item:hover {
+    border-radius:7px;
+    background: rgb(0, 119, 255)
+}
