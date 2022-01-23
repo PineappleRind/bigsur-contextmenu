@@ -3,13 +3,6 @@
 // MIT License
 
 class ContextMenu {
-  /**
-   * @todo Make the opacity transition happen
-   * also when the context menu is open
-   * and the user clicks elsewhere
-   * @todo Dark mode!
-   * @todo Write documentation, possibly try JSDoc.
-   */
   constructor(options) {
     let cm;
     cm = document.createElement("DIV");
