@@ -10,26 +10,30 @@
 </head>
 
 <body>
-    <div class="box" style="position:fixed;top:300px;left:100px;padding:30px;border: 1px solid black">example</div>
+    <div class="box" style="position:fixed;top:100px;left:100px;padding:30px;border: 1px solid black">example</div>
+    <div class="box2" style="position:fixed;top:400px;left:100px;padding:60px;border: 1px solid black">example</div>
     <script src="src/index.js"></script>
     <script>
-       
+        function $(id) { return document.querySelector(id) }
         let menu = new ContextMenu({
             items: [
                 {
-                    name: "Option 1",
-                    action: () => { alert('option 1') }
+                    name: "Here's an option.",
+                    items: [
+                        {
+                            name: "I'm not an option."
+                        }, {
+                            name: "Above is an option."
+                        }
+                    ]
                 }, {
-                    name: "Option 2",
-                    action: () => { alert('option 2') }
+                    name: "Here's another option."
                 },
             ]
         });
-        try {
-            menu.attach(document.querySelector('.box'));
-        } catch (err) {
-            console.log(err);
-        }
+        menu.attach([
+            $('.box'), $('.box2')
+        ]);
     </script>
 </body>
 

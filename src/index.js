@@ -8,6 +8,9 @@ class ContextMenu {
         let cm;
         cm = document.createElement('DIV');
         cm.classList.add('BSCM_contextmenu');
+        if (!options) return console.error(new Error('No object passed.'))
+        if (!options.items) return console.error(new Error('No context menu items.'))
+
         function __addItems(container, items) {
             for (let i = 0; i < items.length; i++) {
                 if (!items[i].name) {
@@ -15,20 +18,20 @@ class ContextMenu {
                 }
                 let cmItem = document.createElement('DIV');
                 cmItem.classList.add('BSCM_item');
-                container.insertAdjacentElement('beforeend',cmItem);
+                container.insertAdjacentElement('beforeend', cmItem);
                 cmItem.innerHTML = items[i].name;
                 if (items[i].items) {
                     cmItem.classList.add('BSCM_nestedContainer')
                     let nestedCont = document.createElement('DIV');
                     nestedCont.classList.add('BSCM_nested');
-                    cmItem.insertAdjacentElement('beforeend',nestedCont);
+                    cmItem.insertAdjacentElement('beforeend', nestedCont);
                     try {
                         __addItems(nestedCont, items[i].items)
                     } catch (error) {
                         console.error(error)
                     }
-                    
-                    container.insertAdjacentElement('beforeend',cmItem);
+
+                    container.insertAdjacentElement('beforeend', cmItem);
                     continue;
                 }
                 cmItem.onclick = () => {
@@ -58,7 +61,6 @@ class ContextMenu {
                 console.log(err);
             }
         };
-
         function __attachContextMenu(html, element) {
             element.oncontextmenu = e => {
                 let pos = {
@@ -70,7 +72,6 @@ class ContextMenu {
                 e.preventDefault();
                 document.body.appendChild(html);
                 let bcr = html.getBoundingClientRect();
-                console.log(bcr.x + ' ' + window.innerWidth);
                 if ((bcr.left + bcr.width) > window.innerWidth)
                     html.style.left = pos.x - bcr.width + 'px';
                 if ((bcr.top + bcr.height) > window.innerHeight)
@@ -78,9 +79,7 @@ class ContextMenu {
 
                 html.focus()
             };
-            html.onblur = () => {
-                html.remove()
-            }
+            
         }
     }
 }

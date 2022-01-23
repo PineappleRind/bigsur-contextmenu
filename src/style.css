@@ -2,9 +2,10 @@
 .BSCM_item .BSCM_nested {
     position: fixed;
     border-radius: 10px;
+    width:fit-content;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .BSCM_item {
@@ -22,7 +23,7 @@
 
 .BSCM_item .BSCM_nested {
     opacity: 0;
-    left: calc(100% + 0px);
+    left: calc(100% + 1px);
     top: -10%;
     position: absolute;
     pointer-events: none;
