@@ -98,7 +98,7 @@ class ContextMenu {
         let className = e.target.classList[0] || " ";
         if (className.toString().includes("BSCM")) {
           // If user is clicking on context menu
-          return console.log(className.includes("BSCM")); // Don't close.
+          return; // Don't close.
         } else {
           // If user isn't clicking on context menu
           html.open = false; // Close.
