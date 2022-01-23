@@ -2,38 +2,64 @@
 .BSCM_item .BSCM_nested {
     position: fixed;
     border-radius: 10px;
-    width:fit-content;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    padding: 4px 0;
+    width: fit-content;
+    background: rgba(222, 222, 222, 0.7);
+    border: 1px solid rgb(213, 213, 213);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    box-shadow: 0 4px 18px -3px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+    opacity:1;
 }
 
 .BSCM_item {
-    padding: 6px 14px;
-    cursor: pointer;
-    margin:0px;
-    font-family: "San Fransisco", 'SF Pro', 'Helvetica Neue', 'Inter', sans-serif;
-    color: white;
+    padding: 4px 9px;
+    font-size: 13px;
+    cursor: default;
+    margin: 0px 4px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    position: relative;
+    font-family: -apple-system, "San Fransisco", 'SF Pro', 'Helvetica Neue', 'Inter', sans-serif;
+}
+.BSCM_item.BSCM_itemDisabled {
+    color: rgb(167,167,167);
+    pointer-events: none;
+}
+.BSCM_item::after {
+    top: 0px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: calc(100% + 5px);
+    position: absolute;
+    content: ''
 }
 
 .BSCM_item:hover {
-    border-radius: 7px;
-    background: rgb(0, 119, 255)
+    border-radius: 6px;
+    color: white;
+    background: rgb(90, 162, 255)
 }
 
 .BSCM_item .BSCM_nested {
     opacity: 0;
-    left: calc(100% + 1px);
+    left: calc(100% + 3px);
     top: -10%;
+    color: black !important;
     position: absolute;
     pointer-events: none;
 }
+
 
 .BSCM_item.BSCM_nestedContainer {
     position: relative
 }
 
-.BSCM_item.BSCM_nestedContainer:hover > .BSCM_nested,.BSCM_nested:hover {
+.BSCM_item.BSCM_nestedContainer:hover>.BSCM_nested,
+.BSCM_nested:hover {
     opacity: 1;
     pointer-events: all;
 }

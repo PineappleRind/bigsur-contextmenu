@@ -14,22 +14,21 @@
     <div class="box2" style="position:fixed;top:400px;left:100px;padding:60px;border: 1px solid black">example</div>
     <script src="src/index.js"></script>
     <script>
-        function $(id) { return document.querySelector(id) }
+        function $(id) {
+            return document.querySelector(id)
+        }
         let menu = new ContextMenu({
-            items: [
-                {
-                    name: "Here's an option.",
-                    items: [
-                        {
-                            name: "I'm not an option."
-                        }, {
-                            name: "Above is an option."
-                        }
-                    ]
-                }, {
-                    name: "Here's another option."
-                },
-            ]
+            items: [{
+                name: "Reload Page",
+            }, {
+                name: "Show Page Source"
+            }, {
+                name: "Save Page As..."
+            }, {
+                name: "Print Page..."
+            }, {
+                name: "Inspect Element"
+            }]
         });
         menu.attach([
             $('.box'), $('.box2')
