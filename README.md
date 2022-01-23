@@ -3,10 +3,10 @@ Context menus in the style of MacOS Big Sur.
 
 ## Installation
 Download the files `index.js` and `index.css` and include them in your code.
-```javascript
+```html
 <script defer src="index.js"></script>
 ```
-```css
+```html
 <link defer rel="stylesheet" href="index.css">
 ```
 
