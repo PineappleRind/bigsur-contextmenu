@@ -10,9 +10,23 @@ class ContextMenu {
     if (!options) return console.error(new Error("No object passed."));
     if (!options.items)
       return console.error(new Error("No context menu items."));
-
+    let themes = ['light', 'dark', 'deviceTheme']
+    if (options.theme) {
+      let correctTheme = false
+      for (const theme in themes) {
+        console.log(themes[theme])
+        if (options.theme === themes[theme]) correctTheme = true
+      }
+      if (correctTheme == true) cm.classList.add("BSCM_" + options.theme)
+    }
     function __addItems(container, items) {
       for (let i = 0; i < items.length; i++) {
+        if (items[i] === 1) {
+          let cmItem = document.createElement("DIV");
+          cmItem.classList.add("BSCM_separator");
+          container.insertAdjacentElement("beforeend", cmItem);
+          continue;
+        }
         if (!items[i].name) {
           console.error(new Error("Item " + i + " does not have a name."));
         }

@@ -18,26 +18,30 @@
             return document.querySelector(id)
         }
         let menu = new ContextMenu({
+            theme: 'dark',
             items: [{
-                name: "Reload Page",
-                action: () =>{alert('yah')}
+                name: "New Folder",
+            }, 1, {
+                name: "Get Info"
             }, {
-                name: "Show Page Source"
+                name: "Change Desktop Background..."
+            }, 1, {
+                name: "Use Stacks"
             }, {
-                name: "Save Page As..."
-            }, {
-                name: "Print Page..."
-            }, {
-                name: "Inspect Element"
-            }, {
-                name: "Nested Element",
+                name: "Group Stacks By",
                 items: [
                     {
-                        name: "I'm nested",
+                        name: "Name",
                     }, {
-                        name: "You're nested"
+                        name: "Kind"
+                    },{
+                        name: "Date Added"
+                    },{
+                        name: "Date Modified"
                     }
                 ]
+            }, {
+                name: "Show View Options",
             }]
         });
         menu.attach([
