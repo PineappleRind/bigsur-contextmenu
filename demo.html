@@ -14,38 +14,42 @@
     <div class="box2" style="position:fixed;top:400px;left:100px;padding:60px;border: 1px solid black">example</div>
     <script src="src/index.js"></script>
     <script>
-        function $(id) {
-            return document.querySelector(id)
-        }
         let menu = new ContextMenu({
             theme: 'dark',
             items: [{
-                name: "New Folder",
-            }, 1, {
-                name: "Get Info"
+                name: "New Finder Window",
+                action: () => {
+                    alert('Opening window...')
+                }
             }, {
-                name: "Change Desktop Background..."
-            }, 1, {
-                name: "Use Stacks"
+                name: "New Smart Window",
             }, {
-                name: "Group Stacks By",
-                items: [
-                    {
-                        name: "Name",
-                    }, {
-                        name: "Kind"
-                    },{
-                        name: "Date Added"
-                    },{
-                        name: "Date Modified"
+                name: "Find..."
+            }, 1, {
+                name: "Go To Folder..."
+            }, {
+                name: "Connect To Server...",
+                disabled: true,
+            }, 1, {
+                name: "Options",
+                items: [{
+                    name: "Remove From Dock",
+                    action: () => {
+                        alert('Removed')
                     }
-                ]
-            }, {
-                name: "Show View Options",
+                }, {
+                    name: "Open At Login",
+                    action: () => {
+                        alert('Will now open at login')
+                    }
+                }, {
+                    name: "Show In Finder"
+                }]
             }]
         });
         menu.attach([
-            $('.box'), $('.box2')
+            document.querySelector('.box'), 
+            document.querySelector('.box2')
         ]);
     </script>
 </body>
