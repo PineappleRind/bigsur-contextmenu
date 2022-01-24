@@ -9,8 +9,7 @@
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
     box-shadow: 0 4px 18px -3px rgba(0, 0, 0, 0.25);
-    transition: 0.2s;
-    opacity:1;
+    opacity: 1;
 }
 
 .BSCM_item {
@@ -21,13 +20,16 @@
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+    animation-duration: 0.2s;
     position: relative;
     font-family: -apple-system, "San Fransisco", 'SF Pro', 'Helvetica Neue', 'Inter', sans-serif;
 }
+
 .BSCM_item.BSCM_itemDisabled {
-    color: rgb(167,167,167);
+    color: rgb(167, 167, 167);
     pointer-events: none;
 }
+
 .BSCM_item::after {
     top: 0px;
     left: 0;
@@ -62,4 +64,25 @@
 .BSCM_nested:hover {
     opacity: 1;
     pointer-events: all;
+}
+
+@keyframes BSCM_flash {
+    0% {
+        background: 0;
+        color: black;
+    }
+
+    49.99% {
+        background: 0;
+        color: black;
+    }
+
+    50% {
+        background: rgb(90, 162, 255);
+        color: white;
+    }
+
+    100% {
+        background: rgb(90, 162, 255)
+    }
 }

@@ -1,7 +1,6 @@
 // Big Sur Context Menu
 // by PineappleRind, 2021
 // MIT License
-
 class ContextMenu {
   constructor(options) {
     let cm;
@@ -34,17 +33,16 @@ class ContextMenu {
           } catch (error) {
             console.error(error);
           }
-
           container.insertAdjacentElement("beforeend", cmItem);
           continue;
         }
         cmItem.onclick = () => {
-          if (!items[i].action) return;
-          try {
+          cmItem.style.animationName = 'BSCM_flash'
+          setTimeout(function () {
+            cmItem.style.animationName = null
+            if (!items[i].action) return;
             items[i].action();
-          } catch (err) {
-            console.error(err);
-          }
+          }, 200)
         };
       }
     }
@@ -74,29 +72,31 @@ class ContextMenu {
           y: e.clientY,
         };
         html.style.opacity = "1";
-        html.style.top = pos.y + "px";
+        html.style.top = pos.y + "px"; // Open the context menu to the bottom right of the mouse
         html.style.left = pos.x + "px";
+        html.style.transition = '0'
         e.preventDefault();
         document.body.appendChild(html);
         let bcr = html.getBoundingClientRect();
-        if (bcr.left + bcr.width > window.innerWidth)
-          html.style.left = pos.x - bcr.width + "px";
-        if (bcr.top + bcr.height > window.innerHeight)
-          html.style.top = pos.y - bcr.height + "px";
-
+        if (bcr.left + bcr.width > window.innerWidth) // If context menu exceeds X coordinate
+          html.style.left = pos.x - bcr.width + "px"; // Menu will open to the left of the mouse
+        if (bcr.top + bcr.height > window.innerHeight) // If context menu exceeds Y coordinate
+          html.style.top = pos.y - bcr.height + "px"; // Menu will open to the top of the mouse
         html.open = true;
       };
       onclick = (e) => {
-        if (html.open == false) return; // Don't close it if it's already closed.
+        if (html.open == false) return html.style.transition = '0';
         let className = e.target.classList[0] || " ";
         if (className.toString().includes("BSCM")) {
-          // If user is clicking on context menu
+          // If user is clicking on a part of the menu
           return; // Don't close.
         } else {
-          // If user isn't clicking on context menu
+          // If user isn't clicking on a part of the menu
           html.open = false; // Close.
+          html.style.transition = '0.3s'
           html.style.opacity = "0";
           setTimeout(function () {
+            html.style.transition = '0'
             html.remove();
           }, 200);
         }

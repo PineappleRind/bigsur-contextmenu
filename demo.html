@@ -20,6 +20,7 @@
         let menu = new ContextMenu({
             items: [{
                 name: "Reload Page",
+                action: () =>{alert('yah')}
             }, {
                 name: "Show Page Source"
             }, {
@@ -28,6 +29,15 @@
                 name: "Print Page..."
             }, {
                 name: "Inspect Element"
+            }, {
+                name: "Nested Element",
+                items: [
+                    {
+                        name: "I'm nested",
+                    }, {
+                        name: "You're nested"
+                    }
+                ]
             }]
         });
         menu.attach([
