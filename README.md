@@ -29,10 +29,10 @@ Pass an object into the `ContextMenu` class.
 
 **Arguments for the ContextMenu class**
 
-| Argument | What it does                                                       | Type   | Optional? |
-|----------|--------------------------------------------------------------------|--------|-----------|
-| `items`  | Array of items inside <br>this context menu                        | Array  | No        |
-| `theme`  | The theme of the context menu<br>`light`, `dark`, or `deviceTheme` | String | Yes       |
+| Argument | What it does                                                                 | Type   | Optional? |
+|----------|------------------------------------------------------------------------------|--------|-----------|
+| `items`  | Array of items inside <br>this context menu                                  | Array  | No        |
+| `theme`  | The theme of the context menu<br>`light`, `dark`, or `deviceTheme` (default) | String | Yes       |
 
 
 **Options for the `items` argument**
@@ -47,17 +47,15 @@ Pass an object into the `ContextMenu` class.
 ## Example
 ```javascript
 let menu = new ContextMenu({
-    items: [ 
-         {
-             name: 'Undo', 
-             action: function() {
-                 alert('Are you sure you want to undo?')
-             }
-         }, {
-             name: 'Redo',
-             disabled: true
-         }
-    ]
+    items: [{
+        name: 'Undo', 
+        action: function() {
+            alert('Are you sure you want to undo?')
+        }
+    }, {
+        name: 'Redo',
+        disabled: true
+    }]
 })
 menu.attach(document.querySelector('canvas'))
 ```
