@@ -26,18 +26,38 @@ The argument passed is the element to attach the `contextmenu` event to.
 
 ## Options
 Pass an object into the `ContextMenu` class.
+
+**Arguments for the ContextMenu class**
+
+| Argument | What it does                                                       | Type   | Optional? |
+|----------|--------------------------------------------------------------------|--------|-----------|
+| `items`  | Array of items inside <br>this context menu                        | Array  | No        |
+| `theme`  | The theme of the context menu<br>`light`, `dark`, or `deviceTheme` | String | Yes       |
+
+
+**Options for the `items` argument**
+
+| Argument   | What it does                                                       | Type     | Optional? |
+|------------|--------------------------------------------------------------------|----------|-----------|
+| `name`     | The name of the item in the menu                                   | String   | No        |
+| `action`   | The action to be executed on <br>item click                        | Function | Yes       |
+| `items`    | Object array for items inside <br>this item. Use this for nesting  | Array    | Yes       |
+| `disabled` | If the item will be greyed out <br>and will not respond to actions | Boolean  | Yes       |
+
+## Example
 ```javascript
 let menu = new ContextMenu({
-    items: [ // Array of objects containing the items displayed on the menu
+    items: [ 
          {
-             name: 'Undo', // Name of the item
-             action: function() { // Action. Function that gets called upon click of the item
+             name: 'Undo', 
+             action: function() {
                  alert('Are you sure you want to undo?')
              }
          }, {
              name: 'Redo',
-             disabled: true, // Boolean. If true, the item will be greyed out and will not respond to actions.
+             disabled: true
          }
     ]
 })
+menu.attach(document.querySelector('canvas'))
 ```
