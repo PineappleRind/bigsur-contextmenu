@@ -68,7 +68,9 @@
     color: rgb(167, 167, 167);
     pointer-events: none;
 }
-
+BSCM.contextmenu.BSCM_dark BSCM_itemDisabled {
+    color: rgba(255, 255, 255, 0.2) !important;
+}
 .BSCM_item::after {
     top: 0px;
     left: 0;
