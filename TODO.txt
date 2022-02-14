@@ -1,7 +1,8 @@
-- Make the opacity transition happen
-also when the context menu is open
-and the user clicks elsewhere
-
 - Finish documentation.
 
 - Make release 0.1.0 with changelog.
+
+- Make nested items not turn blue on hover, 
+  even when mouse focus is not on it.
+
+- Nested items should not overflow window boundary

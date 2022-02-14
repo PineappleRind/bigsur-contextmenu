@@ -1,7 +1,7 @@
 # BigSur ContextMenu
 Context menus in the style of MacOS Big Sur.
 
-*v0.1.0 - 2KB minified*
+*v0.1.0 - 2.27KB minified*
 
 ## Installation
 Download the files `index.js` and `index.css` and include them in your code.
@@ -24,7 +24,7 @@ To attach the context menu to an element, use the `attach()` method:
 ```javascript
 menu.attach(document.getElementById('canvas'))
 ```
-The argument passed is the element to attach the `contextmenu` event to.
+The argument passed must be an HTML element, or an array of HTML elements.
 
 ## Options
 **Arguments for the object passed into the `ContextMenu` class**

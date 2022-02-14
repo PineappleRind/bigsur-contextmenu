@@ -3,6 +3,7 @@
     --BSCM_bg: rgba(222, 222, 222, 0.7);
     --BSCM_border: 1px solid rgb(192, 192, 192);
     --BSCM_color: black;
+    --BSCM_shadow: 0 4px 18px -3px rgb(0 0 0 / 25%);
 }
 
 .BSCM_contextmenu.BSCM_dark {
@@ -10,20 +11,10 @@
     --BSCM_bg: rgba(50, 50, 50, 0.8);
     --BSCM_border: 1px solid rgba(7, 7, 7);
     --BSCM_color: white;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.212), 0 4px 18px -3px rgba(0, 0, 0, 0.45) !important;
+    --BSCM_shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.212), 0 4px 18px -3px rgba(0, 0, 0, 0.45) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-    .BSCM_contextmenu.BSCM_deviceTheme,
-    .BSCM_contextmenu.BSCM_deviceTheme .BSCM_item .BSCM_nested {
-        --BSCM_separator: rgba(255, 255, 255, 0.2) !important;
-        --BSCM_bg: rgba(50, 50, 50, 0.8);
-        --BSCM_border: 1px solid rgba(7, 7, 7);
-        --BSCM_color: white;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.212), 0 4px 18px -3px rgba(0, 0, 0, 0.45) !important;
-    }
 
-}
 
 .BSCM_contextmenu,
 .BSCM_item .BSCM_nested {
@@ -33,14 +24,26 @@
     width: max-content;
     background: var(--BSCM_bg);
     border: var(--BSCM_border);
-    box-shadow: 0 4px 18px -3px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--BSCM_shadow);
     opacity: 1;
-    z-index:9;
+    z-index: 9;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     color: var(--BSCM_color)
 }
 
+@media (prefers-color-scheme: dark) {
+
+    .BSCM_contextmenu.BSCM_deviceTheme,
+    .BSCM_contextmenu.BSCM_deviceTheme .BSCM_item .BSCM_nested {
+        --BSCM_separator: rgba(255, 255, 255, 0.2) !important;
+        --BSCM_bg: rgba(50, 50, 50, 0.8);
+        --BSCM_border: 1px solid rgba(7, 7, 7);
+        --BSCM_color: white;
+        --BSCM_shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.212), 0 4px 18px -3px rgba(0, 0, 0, 0.45) !important;
+    }
+
+}
 
 .BSCM_item {
     padding: 4px 15px;
@@ -68,9 +71,11 @@
     color: rgb(167, 167, 167);
     pointer-events: none;
 }
+
 BSCM.contextmenu.BSCM_dark BSCM_itemDisabled {
     color: rgba(255, 255, 255, 0.2) !important;
 }
+
 .BSCM_item::after {
     top: 0px;
     left: 0;
