@@ -4,16 +4,16 @@ Context menus in the style of MacOS Big Sur.
 *v0.1.0 - 2.27KB minified*
 
 ## Installation
-Download the files `index.js` and `index.css` and include them in your code.
+Download the files `src/index.min.js` and `src/index.min.css` and include them in your code.
 ```html
-<script defer src="index.js"></script>
+<script defer src="index.min.js"></script>
 ```
 ```html
-<link defer rel="stylesheet" href="index.css">
+<link defer rel="stylesheet" href="index.min.css">
 ```
 
 ## Usage
-To instantiate a context menu, use the `ContextMenu` class:
+To instantiate a context menu:
 ```javascript
 let menu = new ContextMenu({
     //...
@@ -22,9 +22,9 @@ let menu = new ContextMenu({
 
 To attach the context menu to an element, use the `attach()` method:
 ```javascript
-menu.attach(document.getElementById('canvas'))
+menu.attach(document.getElementById('drawCanvas'))
 ```
-The argument passed must be an HTML element, or an array of HTML elements.
+The argument passed must be an HTML element, or an array of HTML elements to attach the menu to all of the elements in the array.
 
 ## Options
 **Arguments for the object passed into the `ContextMenu` class**
