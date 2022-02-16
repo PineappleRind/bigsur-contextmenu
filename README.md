@@ -1,7 +1,7 @@
 # BigSur ContextMenu
 Context menus in the style of MacOS Big Sur.
 
-*v0.1.0 - 2.27KB minified*
+*v0.1.1 - 2.27KB minified*
 
 ## Installation
 Download the files `src/index.min.js` and `src/index.min.css` and include them in your code.
